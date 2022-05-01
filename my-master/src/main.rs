@@ -68,15 +68,6 @@ fn main() {
         loop {
             reload_handler.update(&Plugins::reload_callback, &mut plugs);
 
-            // if plugs.plugins.len() > 0 {
-            //     // In a real program you want to cache the symbol and not do it every time if your
-            //     // application is performance critical
-            //     let fun: Symbol<extern "C" fn() -> i32> =
-            //         unsafe { plugs.plugins[0].lib.get(b"shared_fun\0").unwrap() };
-
-            //     println!("Value {}", fun());
-            // }
-
             // Wait for 0.5 sec
             thread::sleep(Duration::from_millis(500));
         }
