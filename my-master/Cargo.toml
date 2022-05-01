@@ -7,5 +7,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-libloading = "0.5"
+dynamic_reload = "0.8.0"
 my-interface = { path = "../my-interface", version = "*" }

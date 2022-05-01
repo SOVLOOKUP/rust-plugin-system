@@ -1,30 +1,24 @@
-use my_interface::SayHelloService;
+use my_interface::Plugin;
 
 #[no_mangle]
-pub extern "Rust" fn new_service() -> Box<dyn SayHelloService> {
-    Box::new(PluginSayHello::new())
+pub fn new() -> Box<dyn Plugin> {
+    Box::new(PluginSayHello { id: "3a90790e".to_string()})
 }
 
 pub struct PluginSayHello {
     id: String,
 }
 
-impl PluginSayHello {
-    fn new() -> PluginSayHello {
-        let id = format!("{:08x}", rand::random::<u32>());
-        println!("[{}] Created instance!", id);
-        PluginSayHello { id }
+impl Plugin for PluginSayHello {
+    fn id(&self) -> &str {
+        self.id.as_str()
     }
-}
 
-impl SayHelloService for PluginSayHello {
-    fn say_hello(&self) {
-        println!("[{}] Hello from plugin!", self.id);
+    fn load(&self) {
+        println!("[{}] Created instance!", self.id);
     }
-}
 
-impl Drop for PluginSayHello {
-    fn drop(&mut self) {
-        println!("[{}] Destroyed instance!", self.id);
+    fn unload(&self) {
+        println!("[{}] Unload instance!", self.id);
     }
 }

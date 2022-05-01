@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 my-interface = { path = "../my-interface", version = "*" }
 rand = "*"
+dynamic_reload = "0.8.0"
 
 [lib]
 name = "my_plugin"

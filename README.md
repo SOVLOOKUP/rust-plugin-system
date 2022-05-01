@@ -1,5 +1,5 @@
 # plugin-system-example
-Example design of executable with `dylib`-based runtime plugin system in Rust, `libloading` used
+Example design of executable with `dylib`-based runtime plugin system in Rust, `dynamic_reload` used
 
 # Usage
 
